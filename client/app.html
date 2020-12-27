@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan approve Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--<script src="app.js"></script>
+	  <link rel="stylesheet" href="app.css">--> <!-- For running locally -->
+    <script src="{{ url_for('static',filename='app.js') }}"></script>
+	<link rel="stylesheet"  href= "{{ url_for('static',filename='app.css') }}"><!-- For integrating Flask and HTML -->
+</head>
+<body>
+<div class="img"></div>
+<form class="form">
+	<h2>Loan Apply Form</h2>
+	<h2>Gender</h2>
+	<input type="radio" id="male" name="gender" value="0" checked>
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender" value="1">
+  <label for="female">Female</label><br>
+<h2>Married</h2>
+	<input type="radio" id="married_yes" name="married" value="1" checked>
+  <label for="married_yes">Yes</label>
+  <input type="radio" id="married_no" name="married" value="0">
+  <label for="married_no">No</label><br>
+<h2>Self Employed</h2>
+	<input type="radio" id="selfEmp_yes" name="selfEmployed" value="1" checked>
+  <label for="selfEmp_yes">Yes</label>
+  <input type="radio" id="selfEmp_no" name="selfEmployed" value="0">
+  <label for="selfEmp_no">No</label><br>
+<h2>Education</h2>
+	<input type="radio" id="graduate" name="education" value="1" checked>
+  <label for="graduate">Graduate</label>
+  <input type="radio" id="non_graduate" name="education" value="0">
+  <label for="non_graduate">Non Graduate</label><br>
+<h2>Applicant Income</h2>
+	<input type="number" name="applicant_income" value="0.0" min=0>
+<h2>CoApplicant Income</h2>
+	<input type="number" name="coapplicant_income" value="0.0" min=0>
+<h2>Loan Amount</h2>
+	<input type="number" name="loan_amount" value="0" min=0>
+<h2>Loan Amount Term</h2>
+	<input type="number" name="loan_amount_term" value="0" min=0>
+<h2>Credit History</h2>
+	<input type="number" name="credit_history" value="0.0" min=0>
+<h2>Dependents</h2>
+<select name="dependents">
+  <option value="Dependents_0">0</option>
+  <option value="Dependents_1" selected>1</option>
+  <option value="Dependents_2">2</option>
+  <option value="Dependents_3+">3+</option>
+</select>
+<h2>Property Area</h2>
+<select name="property_area">
+  <option value="Property_Area_Rural">Rural</option>
+  <option value="Property_Area_Semiurban">Semiurban</option>
+  <option value="Property_Area_Urban">Urban</option>
+</select>
+	<br><button class="submit" onclick="onClickedLoanEligible()" type="button">Check Eligibility</button>
+	</form>
+	<div id="uiLoanApproveInfo" class="result">	<h2></h2> </div>
+</body>
+</html>
