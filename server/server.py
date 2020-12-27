@@ -8,8 +8,8 @@ Created on Sat Dec 26 16:28:45 2020
 
 
 from flask import Flask, request, jsonify, render_template
-#import server.utils as utilFile  #replace this by import util for running locally
-import utils as utilFile
+import server.utils as utilFile  #replace this by import util for running locally
+#import utils as utilFile
 #app = Flask(__name__)
 app = Flask(__name__, static_url_path="/client", static_folder='../client', template_folder="../client")
 
@@ -19,14 +19,6 @@ def index():
         return render_template("app.html")
 
 
-"""@app.route('/get_location_names', methods=['GET'])
-def get_location_names():
-    response = jsonify({
-        'locations': util.get_location_names()
-    })
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
-"""
 @app.route('/predict_loan_approve', methods=['POST'])
 def predict_loan_approve():
     gender = int(request.form['gender'])
